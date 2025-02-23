@@ -264,17 +264,21 @@ body {
 /* FORM START */
 footer {
     display: flex;
+    bottom: 0;
     width: 100%;
+    height: 210px;
     justify-content: center;
     align-items: center;
+    background-color: #333333;
+    z-index: 50;
+    position: fixed;
 }
 
 .social {
     /* position: fixed; */
     bottom: 0px;
     width: 50%;
-    height: 100px;
-    background-color: #000000;
+    height: 210px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -304,43 +308,41 @@ footer {
 }
 
 .bottomForm {
-    position: fixed;
-    bottom: 0;
     display: flex;
     flex-direction: column;
-    /* flex-wrap: wrap; */
-    width: 100%;
-    height: 170px;
+    width: 50%;
+    height: 210px;
     background-color: #FFF000;
     z-index: 30;
     justify-content: start;
     align-items: center;
     font-family: "Roboto Flex", serif;
+    letter-spacing: .05em;
 }
 
 input {
     width: 200px;
     align-self: stretch;    
 }
+
 h1, h2, h3 {
     font-family: "Luckiest Guy";
-    margin: 5px 0px -5px 0px;
+    text-align: center;
+    margin: 20px 0px 3px 0px;
     padding: 0;
 }
 
 .bottomResponse {
-    /* position: fixed; */
-    bottom: 0;
     display: flex;
     flex-direction: column;
-    /* flex-wrap: wrap; */
     width: 100%;
-    height: 170px;
+    height: 210px;
     background-color: #FFF000;
     z-index: 30;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     font-family: "Roboto Flex", serif;
+    letter-spacing: .05em;
 }
 
 @font-face {
@@ -523,6 +525,30 @@ h1, h2, h3 {
         border: 1px solid #0000FF;
         background-color: #0000FF;
         border-radius: 300px;
+    }
+
+    footer {
+        flex-direction: column;
+        height: 300px;
+    }
+    form label, form br {
+        display: none;
+    }
+    form {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        /* align-items: center; */
+    }
+
+    .bottomForm, .social {
+        width: 100%;
+    }
+    .social {
+        height: 200px;
+    }
+    .pellet {
+        min-height: 20px;
     }
 
 
