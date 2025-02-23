@@ -7,12 +7,13 @@ body {
     justify-content: center;
     background-color: #000000;
 }
+
 .float {
     display: block;
     position: absolute;
 }
 
-.artwork{
+.artwork {
     /* width: 1680px;
     height: 1050px; */
     width: 100vw;
@@ -27,32 +28,43 @@ body {
 .gameBoard {
     top: 0px;
     left: 0px;
-    width: 1680px;
-    height: 1050px;
+    /* width: 1680px;
+    height: 1050px; */
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
     /* background-color: #111111; */
 }
+
+
+/* U-CONTAINER */
 .uContainer {
-    width: 900px;
-    height: 300px;
+    /* position: absolute;
+    bottom: 65%; */
+    width: 100vw;
+    height: 25vh;
+    /* width: 900px;
+    height: 150px; */
     display: flex;
     justify-content: center;
     align-items: end;
+    /* align-self: flex-start; */
     gap: -125px;
 }
 
 .uWallLeft {
-    width: 100px;
-    height: 300px;
+    width: 30px;
+    height: 150px;
     border: 1px solid #0000FF;
     background-color: #0000FF;
     border-radius: 300px 300px 0 300px;
 }
 
 .uWallRight {
-    width: 100px;
-    height: 300px;
+    width: 30px;
+    height: 150px;
     border: 1px solid #0000FF;
     background-color: #0000FF;
     border-radius: 300px 300px 300px 0;
@@ -60,11 +72,56 @@ body {
 
 .uWallBottom {
     width: 700px;
-    height: 100px;
+    height: 30px;
     border: 1px solid #0000FF;
     background-color: #0000FF;
     border-radius: 0px;
 }
+
+
+/* T-CONTAINER */
+.tContainer {
+    /* position: absolute;
+    top: 66%; */
+    width: 100vw;
+    height: 30vh;
+    /* width: 900px;
+    height: 150px; */
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    align-self: flex-end;
+}
+
+.tWallCenter {
+    width: 30px;
+    height: 200px;
+    border: 1px solid #0000FF;
+    background-color: #0000FF;
+    border-radius: 0 0 300px 300px;
+}
+
+.tWallLeft {
+    width: 375px;
+    height: 30px;
+    border: 1px solid #0000FF;
+    background-color: #0000FF;
+    border-radius: 300px 0 0 300px;
+}
+
+.tWallRight {
+    width: 375px;
+    height: 30px;
+    border: 1px solid #0000FF;
+    background-color: #0000FF;
+    border-radius: 0 300px 300px 0;
+}
+
+.vHallway {
+    visibility: hidden;
+    display: none;
+}
+
 
 /* GHOST -- START */
 .ghost {
@@ -86,6 +143,7 @@ body {
     border-radius: 100px 100px 0px 0px;
     /* transform: skew(-5deg); */
 }
+
 .ghostFace {
     width: 100px;
     height: 100px;
@@ -127,8 +185,8 @@ body {
     background-color: #0000FF;
 }
 
-.mouth{
-    display: flex;    
+.mouth {
+    display: flex;
 }
 
 .lip {
@@ -195,11 +253,11 @@ body {
     .blinky {
         background-color: #0000FF;
     }
-    
+
     .pinky {
         background-color: #0000FF;
     }
-    
+
     .inky {
         background-color: #0000FF;
     }
@@ -223,7 +281,7 @@ body {
         /* gap: 5%; */
     }
 
-    .eye  {
+    .eye {
         width: 40px;
         height: 40px;
         border-radius: 6px;
@@ -238,12 +296,12 @@ body {
         /* background-color: #FFFFFF; */
     }
 
-    .ghostFace{
+    .ghostFace {
         margin-right: 12px;
     }
 
-    .mouth{
-        gap: 3px;    
+    .mouth {
+        gap: 3px;
     }
 
     .lip:nth-child(odd) {
@@ -251,6 +309,7 @@ body {
         border-right: 1px solid #FFFFFF;
         rotate: -45deg;
     }
+
     .lip:nth-child(even) {
         border-top: 1px solid #FFFFFF;
         border-right: 1px solid #FFFFFF;
@@ -260,15 +319,15 @@ body {
     .pacManTop {
         transform: rotate(18deg);
     }
-    
+
     .pacManBottom {
         transform: rotate(-18deg);
     }
 }
 
 /* @media screen and (min-width:300px) and (min-height: 600px) { */
-    @media  (max-aspect-ratio: 3/4) {
-        .artwork {
+@media (max-aspect-ratio: 3/4) {
+    .artwork {
         flex-direction: column;
     }
 
@@ -280,7 +339,7 @@ body {
         top: 20px;
         left: 13px;
     }
-    
+
     .pacMan {
         width: 120px;
         height: 120px;
@@ -294,7 +353,7 @@ body {
         border-radius: 200px 0px 0 200px;
         transform: rotate(18deg);
     }
-    
+
     .pacManBottom {
         height: 120px;
         width: 60px;
@@ -302,6 +361,40 @@ body {
         border-radius: 0 200px 200px 0;
         transform: rotate(-18deg);
     }
+
+    .tContainer,
+    .uContainer {
+        visibility: hidden;
+        display: none;
+    }
+
+    .gameBoard {
+        /* flex-direction: column; */
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .vHallway {
+        visibility: visible;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        /* gap: 50%; */
+
+    }
+
+    .vWallLeft, .vWallRight {
+        width: 30px;
+        height: 90%;
+        border: 1px solid #0000FF;
+        background-color: #0000FF;
+        border-radius: 300px;
+    }
+
+
 }
 
 @media screen and (min-width:480px) and (min-height: 320px) {
