@@ -15,6 +15,8 @@ body {
 .artwork{
     /* width: 1680px;
     height: 1050px; */
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,22 +66,36 @@ body {
     border-radius: 0px;
 }
 
+/* GHOST -- START */
 .ghost {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
     width: 100px;
     height: 112px;
     z-index: 20;
     /* background-color: cyan; */
+    flex-grow: 0;
 }
 
 .ghostHead {
     width: 100px;
     height: 112px;
-    display: flex;
-    align-items: center;
-    justify-content: end;
+    height: 112px;
     /* background-color: #FF0000; */
     border-radius: 100px 100px 0px 0px;
     /* transform: skew(-5deg); */
+}
+.ghostFace {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    margin-left: 12px;
+    /* background-color: #FF0000; */
 }
 
 .eyesContainer {
@@ -87,8 +103,9 @@ body {
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-right: 10px;
+    justify-content: space-evenly;
+    z-index: 20;
+    /* margin-left: 10px; */
     /* background-color: yellow; */
 }
 
@@ -110,6 +127,15 @@ body {
     background-color: #0000FF;
 }
 
+.mouth{
+    display: flex;    
+}
+
+.lip {
+    width: 10px;
+    height: 10px;
+}
+
 .ghostBottom {
     width: 100px;
     height: 13px;
@@ -117,8 +143,7 @@ body {
     justify-content: space-between;
     align-items: end;
     bottom: 0px;
-    /* background-color: aqua; */
-    /* bottom: 100px; */
+    margin-top: 14px;
 }
 
 .ghostBalls {
@@ -140,9 +165,12 @@ body {
     background-color: #00FFFF;
 }
 
+/* GHOST -- END */
 
 
-.pacManContainer {
+
+
+.pacMan {
     width: 120px;
     height: 120px;
 }
@@ -163,7 +191,7 @@ body {
     transform: rotate(18deg);
 }
 
-@media screen and (min-width:1024px) and (min-height: 768px) {
+@media (min-aspect-ratio: 16/9) {
     .blinky {
         background-color: #0000FF;
     }
@@ -176,8 +204,30 @@ body {
         background-color: #0000FF;
     }
 
-    .eye {
-        border-radius: 10px;
+    .ghost {
+        justify-content: end;
+    }
+
+    .ghostHead {
+        /* align-items: center;     */
+        /* justify-content: flex-start; */
+        /* background-color: #FF0000; */
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: end;
+        border-radius: 100px 100px 0px 0px;
+    }
+
+    .eyesContainer {
+        /* margin-right: 30px; */
+        /* gap: 5%; */
+    }
+
+    .eye  {
+        width: 40px;
+        height: 40px;
+        border-radius: 6px;
+        background-color: #FFFFFF;
     }
 
     .pupil {
@@ -188,10 +238,25 @@ body {
         /* background-color: #FFFFFF; */
     }
 
-    .eyesContainer {
-        margin-right: 50px;
-        /* background-color: yellow; */
+    .ghostFace{
+        margin-right: 12px;
     }
+
+    .mouth{
+        gap: 3px;    
+    }
+
+    .lip:nth-child(odd) {
+        border-top: 1px solid #FFFFFF;
+        border-right: 1px solid #FFFFFF;
+        rotate: -45deg;
+    }
+    .lip:nth-child(even) {
+        border-top: 1px solid #FFFFFF;
+        border-right: 1px solid #FFFFFF;
+        rotate: -45deg;
+    }
+
     .pacManTop {
         transform: rotate(18deg);
     }
@@ -201,6 +266,46 @@ body {
     }
 }
 
-@media screen and (min-width:480px) and (min-height: 320px) {
+/* @media screen and (min-width:300px) and (min-height: 600px) { */
+    @media  (max-aspect-ratio: 3/4) {
+        .artwork {
+        flex-direction: column;
+    }
 
+    .ghostFace {
+        margin-left: 0px;
+    }
+
+    .pupil {
+        top: 20px;
+        left: 13px;
+    }
+    
+    .pacMan {
+        width: 120px;
+        height: 120px;
+        display: flex;
+    }
+
+    .pacManTop {
+        height: 120px;
+        width: 60px;
+        left: 36%;
+        border-radius: 200px 0px 0 200px;
+        transform: rotate(18deg);
+    }
+    
+    .pacManBottom {
+        height: 120px;
+        width: 60px;
+        left: 50%;
+        border-radius: 0 200px 200px 0;
+        transform: rotate(-18deg);
+    }
+}
+
+@media screen and (min-width:480px) and (min-height: 320px) {
+    .body {
+        transform: scale(.5);
+    }
 }
